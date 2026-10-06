@@ -11,8 +11,8 @@ the correct shape for the data.
 
 ## Stack
 
-- **Vite + React 19** — build tooling
-- **React Router 7** — one route per topic, so URLs are shareable
+- **Vite + React 19** - build tooling
+- **React Router 7** - one route per topic, so URLs are shareable
 - **No UI library.** The palette and type come from the original guide, so this
   reads as the same product
 - **No state library.** The only shared state is the loaded calendar and the
@@ -69,7 +69,7 @@ English, Hindi and Marathi, switched from the header and remembered in
 `label_en`, `label_hi`, `label_mr`), so a band can never show a Hindi label while
 the page is in Marathi.
 
-Dates and countdown digits are localised too — the countdown reads `०९ ८४` rather
+Dates and countdown digits are localised too - the countdown reads `०९ ८४` rather
 than `09 84` in Hindi, since a countdown nobody can read is useless.
 
 ## Deploy
