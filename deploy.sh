@@ -20,6 +20,10 @@ die() { printf '\033[1;31mxx\033[0m %s\n' "$*" >&2; exit 1; }
 
 [ "$(id -u)" -eq 0 ] || die "run as root (or with sudo)"
 
+# Optional first argument: the public domain name. It is used only for the
+# Host header in the post-deploy check, so it defaults to the canonical one.
+SITE_DOMAIN="${1:-app.mahakumbh.net}"
+
 # --------------------------------------------------------------------------- #
 log "Fetching the guide"
 if [ ! -d "$WEB_DIR/.git" ]; then
