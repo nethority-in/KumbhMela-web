@@ -101,15 +101,20 @@ systemctl reload nginx
 
 # --------------------------------------------------------------------------- #
 log "Checking it answers"
-CODE=$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1/ -H "Host: $SITE_DOMAIN")
+# curl -L follows the certbot HTTP -> HTTPS redirect, so a 200 after redirects
+# means the SPA, its bundle and the calendar all answer correctly over TLS.
+CODE=$(curl -sL -o /dev/null -w '%{http_code}' http://127.0.0.1/ -H "Host: $SITE_DOMAIN")
 ASSET=$(grep -o '/assets/[^"]*\.js' "$SITE_ROOT/index.html" | head -1 || true)
-ACODE=$(curl -s -o /dev/null -w '%{http_code}' "http://127.0.0.1$ASSET" -H "Host: $SITE_DOMAIN")
-CAL=$(curl -s -o /dev/null -w '%{http_code}' "http://127.0.0.1/data/calendar.json" -H "Host: $SITE_DOMAIN")
+ACODE=$(curl -sL -o /dev/null -w '%{http_code}' "http://127.0.0.1$ASSET" -H "Host: $SITE_DOMAIN")
+CAL=$(curl -sL -o /dev/null -w '%{http_code}' "http://127.0.0.1/data/calendar.json" -H "Host: $SITE_DOMAIN")
 
 log "site=$CODE  bundle=$ACODE  calendar=$CAL"
 
+# After following redirects, every route must end at 200. A 301 or 302 that
+# curl -L resolves to 200 is the correct behaviour when certbot has redirected
+# HTTP to HTTPS.
 if [ "$CODE" != "200" ] || [ "$ACODE" != "200" ] || [ "$CAL" != "200" ]; then
-  die "not serving correctly. rollback with:
+  die "not serving correctly (site=$CODE, bundle=$ACODE, calendar=$CAL). rollback with:
        rm -rf $SITE_ROOT && cp -a $SITE_ROOT.old $SITE_ROOT && systemctl reload nginx"
 fi
 
