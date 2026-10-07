@@ -3,32 +3,15 @@ import './Stats.css';
 
 export default function Stats() {
   const [data, setData] = useState(null);
-  const [err, setErr] = useState('');
-
   useEffect(() => {
-    // Quick test data for now so you can see the UI form
-    setData({
-      total_conversations: 1240,
-      free_conversations: 420,
-      total_visits: 3890,
-      by_lang: [
-        { lang: 'en', count: 720 },
-        { lang: 'hi', count: 380 },
-        { lang: 'mr', count: 140 },
-      ],
-      by_intent: [
-        { intent: 'quiet', count: 540 },
-        { intent: 'crowd', count: 320 },
-        { intent: 'dates', count: 230 },
-        { intent: 'waters', count: 120 },
-        { intent: 'helpline', count: 30 },
-      ],
-      by_day: [
-        { day: '2026-10-05', messages: 120 },
-        { day: '2026-10-04', messages: 98 },
-        { day: '2026-10-03', messages: 86 },
-        { day: '2026-10-02', messages: 74 },
-      ],
+    fetch('https://api.mahakumbh.net/stats/json')
+      .then((r) => {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(setData)
+      .catch((e) => setErr(e.message));
+  }, []);
     });
   }, []);
 
