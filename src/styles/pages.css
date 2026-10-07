@@ -176,3 +176,17 @@
 .site-foot .method-note { margin-top: 0.6rem; color: var(--saffron); }
 
 .page-title { padding-top: clamp(2.5rem, 5vw, 4rem); }
+
+/* Stats page */
+.stats-page { padding: 2rem 1rem; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 1rem; margin: 1rem 0; }
+.stat-tile { background: #1a1a1a; border-radius: 8px; padding: 1rem; text-align: center; }
+.stat-tile h3 { margin-bottom: 0.5rem; font-size: 0.9rem; color: #a0a0a0; }
+.stat-tile p { font-size: 1.8rem; font-weight: 700; color: #e0984a; }
+.stat-sub { font-size: 0.75rem; color: #777; }
+.stats-list { list-style: none; padding-left: 0; }
+.stats-list li { padding: 0.3rem 0; border-bottom: 1px solid #2a2a2a; }
+.stats-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+.stats-table th, .stats-table td { padding: 0.5rem; text-align: left; border-bottom: 1px solid #2a2a2a; }
+.stats-error { color: #e05252; }
+.stats-loading { color: #a0a0a0; }

@@ -20,6 +20,7 @@ export const en = {
     waters: "Two waters",
     practical: "Before you go",
     methodology: "How we estimate",
+    stats: "Bot stats",
     lang: "Language",
   },
   hero: {
@@ -227,6 +228,7 @@ export const hi = {
     waters: "दो जल",
     practical: "यात्रा से पहले",
     methodology: "अनुमान कैसे",
+    stats: "बॉट आंकड़े",
     lang: "भाषा",
   },
   hero: {
@@ -433,6 +435,7 @@ export const mr = {
     waters: "दोन वाहिणा",
     practical: "प्रवासापूर्वी",
     methodology: "अंदाज कसा",
+    stats: "बॉट आकडेवारी",
     lang: "भाषा",
   },
   hero: {

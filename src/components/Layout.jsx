@@ -10,6 +10,7 @@ const LINKS = [
   { to: '/waters', key: 'waters' },
   { to: '/practical', key: 'practical' },
   { to: '/methodology', key: 'methodology' },
+  { to: '/stats', key: 'stats' },
 ];
 
 function Header() {
