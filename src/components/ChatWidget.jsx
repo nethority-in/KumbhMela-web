@@ -15,6 +15,15 @@ export default function ChatWidget() {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
+  useEffect(() => {
+    if (!open) return;
+    fetch('https://api.mahakumbh.net/track-visit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ page: 'chat-widget', device: 'web', lang: navigator.language?.slice(0,2) }),
+    }).catch(() => {});
+  }, [open]);
+
   async function send() {
     const text = input.trim();
     if (!text) return;
