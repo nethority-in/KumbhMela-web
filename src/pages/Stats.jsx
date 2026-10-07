@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './Stats.css';
 
 export default function Stats() {
+  const [err, setErr] = useState('');
   const [data, setData] = useState(null);
   useEffect(() => {
     fetch('https://api.mahakumbh.net/stats/json')
@@ -11,8 +12,6 @@ export default function Stats() {
       })
       .then(setData)
       .catch((e) => setErr(e.message));
-  }, []);
-    });
   }, []);
 
   if (err) return <div className="no-data">Error loading stats: {err}</div>;
