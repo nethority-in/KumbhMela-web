@@ -77,7 +77,27 @@ export default function Stats() {
         ))}
       </div>
 
-      <h2 className="section-title">Daily Conversations</h2>
+      <h2 className="section-title">Most Repeated User Messages</h2>
+      <div className="metric-list">
+        {(data.top_messages || []).map((x, i) => (
+          <div className="metric-item" key={i}>
+            <span>{x.text}</span>
+            <div className="metric-bar">
+              <div
+                className="metric-fill"
+                style={{
+                  width: `${Math.round(
+                    (x.count / ((data.top_messages[0] || {}).count || 1)) * 100
+                  )}%`,
+                }}
+              />
+            </div>
+            <span className="metric-count">{x.count}</span>
+          </div>
+        ))}
+      </div>
+
+
       <table className="stats-table">
         <thead>
           <tr>
