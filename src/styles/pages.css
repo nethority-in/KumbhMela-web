@@ -190,3 +190,22 @@
 .stats-table th, .stats-table td { padding: 0.5rem; text-align: left; border-bottom: 1px solid #2a2a2a; }
 .stats-error { color: #e05252; }
 .stats-loading { color: #a0a0a0; }
+
+/* Stats page */
+.stats-page { padding: 2rem 1rem; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 1rem; margin-bottom: 2rem; }
+.stat-tile { background: #1a1a1a; border-radius: 8px; padding: 1rem; text-align: center; }
+.stat-tile h3 { margin-bottom: 0.5rem; font-size: 0.9rem; color: #a0a0a0; }
+.stat-tile p { font-size: 1.8rem; font-weight: 700; color: #e0984a; }
+
+.bar-list { margin: 1rem 0; }
+.bar-row { display: flex; align-items: center; margin-bottom: 0.6rem; }
+.bar-label { width: 110px; font-weight: 600; color: #ddd; }
+.bar-track { flex: 1; height: 12px; background: #222; border-radius: 6px; overflow: hidden; }
+.bar-fill { height: 100%; background: #e0984a; }
+.bar-count { margin-left: 0.6rem; font-weight: 600; color: #a0a0a0; }
+
+.stats-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+.stats-table th, .stats-table td { padding: 0.5rem; text-align: left; border-bottom: 1px solid #2a2a2a; }
+.stats-error { color: #e05252; }
+.stats-loading { color: #a0a0a0; }
