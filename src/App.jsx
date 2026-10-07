@@ -10,6 +10,7 @@ import Practical from "./pages/Practical.jsx";
 import Stats from './pages/Stats.jsx';
 import Methodology from "./pages/Methodology.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import ChatWidget from "./components/ChatWidget.jsx";
 
 function VisitorTracker() {
   const { pathname } = useLocation();
@@ -45,6 +46,7 @@ export default function App() {
       <I18nProvider>
         <Title />
         <VisitorTracker />
+        <ChatWidget />
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<Home />} />
