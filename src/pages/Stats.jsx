@@ -102,22 +102,6 @@ export default function Stats() {
       </div>
 
 
-      <table className="stats-table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Messages</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.by_day.map((x) => (
-            <tr key={x.day}>
-              <td>{x.day}</td>
-              <td>{x.messages}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
       </div>
     </div>
   );
