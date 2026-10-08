@@ -37,8 +37,10 @@ export default function Stats() {
         </div>
       </div>
 
-      <h2 className="section-title">Conversations by Language</h2>
-      <div className="metric-list">
+      {/* Sections */}
+      <div className="stats-section">
+        <h2 className="section-title">Conversations by Language</h2>
+        <div className="metric-list">
         {data.by_lang.map((x) => (
           <div className="metric-item" key={x.lang}>
             <span>{x.lang.toUpperCase()}</span>
@@ -55,9 +57,11 @@ export default function Stats() {
             <span className="metric-count">{x.count}</span>
           </div>
         ))}
+        </div>
       </div>
 
-      <h2 className="section-title">Top Intents</h2>
+      <div className="stats-section">
+        <h2 className="section-title">Top Intents</h2>
       <div className="metric-list">
         {data.by_intent.map((x) => (
           <div className="metric-item" key={x.intent}>
@@ -114,6 +118,7 @@ export default function Stats() {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }
